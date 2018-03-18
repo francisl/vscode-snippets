@@ -1,0 +1,123 @@
+{
+/*
+	 // Place your snippets for Javascript (Babel) here. Each snippet is defined under a snippet name and has a prefix, body and
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+	"Object Function": {
+		"prefix": "ofunc",
+		"body": [
+			"${1:name}: function($2) {",
+			"\t$4",
+			"},"
+		],
+		"description": "Create object function/method"
+	},
+	"Functions - create async": {
+		"prefix": "funcasync",
+		"body": [
+			"function* ${1}(${2}) {",
+			"\t${3}",
+			"}"
+		],
+		"description": "Create an async function"
+	},
+	// UTILS
+	"console log": {
+		"prefix": "c.log",
+		"body": [
+			"console.log(${1})"
+		],
+		"description": ""
+	},
+	// React
+	"React Functional Components - New file": {
+		"prefix": "refunc+f",
+		"body": [
+			"import React from 'react';",
+			"import PropTypes from 'prop-types';",
+			"",
+			"const propTypes = {",
+				"\t${4}: ${5}",
+			"};",
+			"",
+			"export const ${TM_FILENAME/(\\-)([\\w+])(\\w+)(\\.\\w+)/${2:/upcase}${3}/} = (props${2}) => {",
+			"\treturn (",
+			"\t\t${3:<h1></h1>}",
+			"\t);",
+			"};"
+		],
+		"description": "Create new react component file"
+	},
+	"React Functional Component": {
+		"prefix": "refunc",
+		"body": [
+			"export const ${1:name} = (props${2}) => {",
+			"\treturn (",
+			"\t\t${3:<h1></h1>}",
+			"\t);",
+			"};"
+		],
+		"description": "Create new react component file"
+	},
+	"React Props": {
+		"prefix": "reprops",
+		"body": [
+			"const propTypes = {",
+				"\t${1}: ${2}",
+			"};"
+		],
+		"Create PropTypes object"
+	},
+	// Jest
+	"Describe": {
+		"prefix": "desc",
+		"body": [
+			"describe('${1}, () => {",
+				"\tit('${2}', () => {",
+					"\t\t${3}",
+				"\t});",
+			"});"
+		],
+		"description": ""
+	},
+	"Jest new test file": {
+		"prefix": "jest+f",
+		"body": [
+			"import { call, put } from 'redux-saga/effets';\n\n",
+			"describe('${1}', () => {",
+				"\tit('${2}', () => {",
+					"\t\t${3}",
+				"\t});",
+			"});"
+		],
+		"description": ""
+	},
+	"Jest Saga new test": {
+		"prefix": "jestitsaga",
+		"body": [
+			"\tit('${2}', () => {",
+				"\t\t${3}",
+				"\t\tconst gen = ${3:FUNCTION_TO_TEST}();",
+				"\t\tconst dismissAllAlertsAction = gen.next();",
+				"\t\texpect(dismissAllAlertsAction.value.PUT).toEqual({",
+					"\t\t\taction: {",
+						"\t\t\t\ttype: 'DISMISS_ALL_ALERTS'",
+					"\t\t\t},",
+					"\t\t\tchannel: null",
+				"\t\t});",
+			"\t});"
+		],
+		"description": "Create Jest Saga test"
+	},
+}
+
