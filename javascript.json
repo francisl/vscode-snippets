@@ -13,8 +13,11 @@
 		"description": "Log output to console"
 	}
 */
+
+	// ****************
+	// ES5
 	"Object Function": {
-		"prefix": "ofunc",
+		"prefix": "funo",
 		"body": [
 			"${1:name}: function($2) {",
 			"\t$4",
@@ -22,15 +25,76 @@
 		],
 		"description": "Create object function/method"
 	},
+
+	// ****************
+	// ES6+
+	"Class": {
+		"prefix": "cls",
+		"body": [
+			"export class ${1:name} ${2:extends} {",
+				"\tconstructor() {",
+					"\t\tsuper();",
+				"\t}\n",
+				"\t${3:methodX}() {",
+				"\t\treturn ${4:null};",
+				"\t}",
+			"}\n"
+		],
+		"description": "ES6 Class"
+	},
 	"Functions - create async": {
-		"prefix": "funcasync",
+		"prefix": "funasync",
 		"body": [
 			"function* ${1}(${2}) {",
 			"\t${3}",
-			"}"
+			"};"
 		],
 		"description": "Create an async function"
 	},
+	"Anonymous Functions - arrow => returnValue": {
+		"prefix": "funa>",
+		"body": [
+			"(${1}) => ${2}"
+		],
+		"description": "anonymous arrow function"
+	},
+	"Anonymous Functions - arrow => {}": {
+		"prefix": "funa{",
+		"body": [
+			"(${1}) => {",
+			"\treturn ${2};",
+			"}"
+		],
+		"description": "anonymous arrow function"
+	},
+	"Anonymous Functions - arrow": {
+		"prefix": "funa)",
+		"body": [
+			"(${1}) => (",
+			"\t${2}",
+			")"
+		],
+		"description": "anonymous arrow function"
+	},
+	"Functions - () => {}": {
+		"prefix": "fun>",
+		"body": [
+			"(${1}) => {",
+			"\treturn ${2};",
+			"};"
+		],
+		"description": "Arrow function scoped"
+	},
+	"Functions - () => ()": {
+		"prefix": "fun)",
+		"body": [
+			"const ${1} = (${2}) => (",
+			"\t${3}",
+			");"
+		],
+		"description": "Arrow function ()"
+	},
+	// ****************
 	// UTILS
 	"console log": {
 		"prefix": "c.log",
@@ -39,7 +103,23 @@
 		],
 		"description": ""
 	},
+	// ****************
 	// React
+	"React Component Class": {
+		"prefix": "reclass",
+		"body": [
+			"class ${1:name} extends React.Component {",
+				"\trender() {",
+				"\t\treturn (${2:<div></div>})",
+				"\t}",
+			"}\n",
+			"${1}.propTypes = {",
+				"\t${4}",
+			"};\n",
+			"export default ${1};"
+		],
+		"description": "React Component Class"
+	},
 	"React Functional Components - New file": {
 		"prefix": "refunc+f",
 		"body": [
@@ -47,7 +127,7 @@
 			"import PropTypes from 'prop-types';",
 			"",
 			"const propTypes = {",
-				"\t${4}: ${5}",
+				"\t${4}",
 			"};",
 			"",
 			"export const ${TM_FILENAME/(\\-)([\\w+])(\\w+)(\\.\\w+)/${2:/upcase}${3}/} = (props${2}) => {",
@@ -78,6 +158,8 @@
 		],
 		"Create PropTypes object"
 	},
+	// ****************
+	//// TESTS
 	// Jest
 	"Describe": {
 		"prefix": "desc",
