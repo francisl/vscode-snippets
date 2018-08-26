@@ -219,5 +219,15 @@
 		],
 		"description": "Create Jest Saga test"
 	},
+	"Node Express new file": {
+		"prefix": "",
+		"body": [
+			"const express = require('express')",
+			"const app = express()",
+			"app.get('/', (req, res) => res.send('!!'))",
+			"app.listen(3000, () => console.log('Example app listening on port 3000!'))"
+		],
+		"description": "Create basic expressjs server"
+	},
 }
 
