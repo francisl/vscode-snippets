@@ -43,13 +43,22 @@
 		"description": "ES6 Class"
 	},
 	"Functions - create async": {
-		"prefix": "funasync",
+		"prefix": "asyncfun",
+		"body": [
+			"async function ${1}(${2}) {",
+			"\tconst result = await ${3}(${4})",
+			"}"
+		],
+		"description": "Create an async function"
+	},
+	"Functions - create generator": {
+		"prefix": "generator",
 		"body": [
 			"function* ${1}(${2}) {",
 			"\t${3}",
 			"};"
 		],
-		"description": "Create an async function"
+		"description": "Create an generator function"
 	},
 	"Anonymous Functions - arrow => returnValue": {
 		"prefix": "funa>",
@@ -100,6 +109,15 @@
 		"prefix": "c.log",
 		"body": [
 			"console.log(${1})"
+		],
+		"description": ""
+	},
+	"Ojbect Maps": {
+		"prefix": "objmap",
+		"body": [
+			"Object.keys(${1:object}).map((key, index) => {",
+				"\treturn ${1}[key];",
+			 "});"
 		],
 		"description": ""
 	},
